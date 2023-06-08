@@ -7,7 +7,8 @@ function App() {
   const [message, setMessage] = useState('');
 
   function callApi() {
-    fetch('http://localhost:8080/backend', { method: 'GET' })
+    console.log(process.env.REACT_APP_API_URL);
+    fetch(process.env.REACT_APP_API_URL, { method: 'GET' })
     //.then(response => alert(response.status))
     .then(response => response.text()) // Parsing the data into a JavaScript object
     .then(json => setMessage(JSON.stringify(json))) // Displaying the stringified data in an alert popup
